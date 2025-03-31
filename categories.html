@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GoodGame.mom游戏分类 - 浏览各种类型的在线游戏">
+    <meta name="keywords" content="游戏分类,在线游戏,免费游戏,休闲游戏,动作游戏,射击游戏,益智游戏">
+    <title>游戏分类 - GoodGame.mom</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen">
+    <!-- 网站头部 -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="text-2xl font-bold text-indigo-600 flex items-center">
+                <span>GoodGame</span>
+                <span class="text-pink-500">.mom</span>
+            </a>
+            
+            <!-- 搜索框 -->
+            <div class="relative w-full max-w-md mx-4">
+                <input type="text" placeholder="搜索游戏..." 
+                       class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-3 top-2.5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                </svg>
+            </div>
+            
+            <!-- 导航菜单 -->
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="text-gray-600 hover:text-indigo-600">首页</a></li>
+                    <li><a href="categories.html" class="text-indigo-600 font-medium">分类</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-indigo-600">热门</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-indigo-600">新游戏</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- 页面标题 -->
+        <section class="mb-10">
+            <h1 class="text-3xl font-bold mb-2">游戏分类</h1>
+            <p class="text-gray-600">浏览各种类型的游戏，找到你最喜欢的</p>
+        </section>
+        
+        <!-- 按游戏类型分类 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 px-6 py-4">
+                    <h2 class="text-2xl font-bold text-white">按游戏类型</h2>
+                </div>
+                
+                <div class="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- 游戏类型项 -->
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-600 mr-4">
+                            <span class="text-2xl">🎮</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">动作游戏</h3>
+                            <p class="text-sm text-gray-500">128 款游戏</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-4">
+                            <span class="text-2xl">🔫</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">射击游戏</h3>
+                            <p class="text-sm text-gray-500">97 款游戏</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 mr-4">
+                            <span class="text-2xl">🧩</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">益智游戏</h3>
+                            <p class="text-sm text-gray-500">156 款游戏</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mr-4">
+                            <span class="text-2xl">🏆</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">策略游戏</h3>
+                            <p class="text-sm text-gray-500">73 款游戏</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 mr-4">
+                            <span class="text-2xl">⚽</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">体育游戏</h3>
+                            <p class="text-sm text-gray-500">59 款游戏</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-cyan-100 flex items-center justify-center text-cyan-600 mr-4">
+                            <span class="text-2xl">🚗</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">赛车游戏</h3>
+                            <p class="text-sm text-gray-500">42 款游戏</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 mr-4">
+                            <span class="text-2xl">🎲</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">棋牌游戏</h3>
+                            <p class="text-sm text-gray-500">68 款游戏</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 mr-4">
+                            <span class="text-2xl">👪</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">模拟经营</h3>
+                            <p class="text-sm text-gray-500">83 款游戏</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 按游戏主题分类 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-pink-500 to-red-600 px-6 py-4">
+                    <h2 class="text-2xl font-bold text-white">按游戏主题</h2>
+                </div>
+                
+                <div class="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- 游戏主题项 -->
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-white mr-4">
+                            <span class="text-2xl">👻</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">恐怖</h3>
+                            <p class="text-sm text-gray-500">45 款游戏</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 mr-4">
+                            <span class="text-2xl">🌸</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">二次元</h3>
+                            <p class="text-sm text-gray-500">87 款游戏</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 mr-4">
+                            <span class="text-2xl">🏛️</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">历史</h3>
+                            <p class="text-sm text-gray-500">29 款游戏</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-4">
+                            <span class="text-2xl">🚀</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">科幻</h3>
+                            <p class="text-sm text-gray-500">64 款游戏</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 mr-4">
+                            <span class="text-2xl">🧱</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">像素风</h3>
+                            <p class="text-sm text-gray-500">93 款游戏</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 mr-4">
+                            <span class="text-2xl">🧙</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">奇幻</h3>
+                            <p class="text-sm text-gray-500">75 款游戏</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 mr-4">
+                            <span class="text-2xl">🎭</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">角色扮演</h3>
+                            <p class="text-sm text-gray-500">58 款游戏</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-4">
+                            <span class="text-2xl">🌊</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">海洋</h3>
+                            <p class="text-sm text-gray-500">26 款游戏</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 按难度分类 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-teal-600 px-6 py-4">
+                    <h2 class="text-2xl font-bold text-white">按难度分类</h2>
+                </div>
+                
+                <div class="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <!-- 难度分类项 -->
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 mr-4">
+                            <span class="text-2xl">😊</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">简单</h3>
+                            <p class="text-sm text-gray-500">适合初学者的休闲游戏</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 mr-4">
+                            <span class="text-2xl">😏</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">中等</h3>
+                            <p class="text-sm text-gray-500">需要一定技巧的游戏</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-600 mr-4">
+                            <span class="text-2xl">😈</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">困难</h3>
+                            <p class="text-sm text-gray-500">挑战性强的硬核游戏</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 按年龄分类 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-orange-600 px-6 py-4">
+                    <h2 class="text-2xl font-bold text-white">按年龄分类</h2>
+                </div>
+                
+                <div class="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- 年龄分类项 -->
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-4">
+                            <span class="text-xl">3+</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">幼儿</h3>
+                            <p class="text-sm text-gray-500">48 款游戏</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 mr-4">
+                            <span class="text-xl">7+</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">儿童</h3>
+                            <p class="text-sm text-gray-500">112 款游戏</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 mr-4">
+                            <span class="text-xl">12+</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">青少年</h3>
+                            <p class="text-sm text-gray-500">203 款游戏</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-600 mr-4">
+                            <span class="text-xl">16+</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">成人</h3>
+                            <p class="text-sm text-gray-500">167 款游戏</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer class="bg-gray-100 border-t border-gray-200 py-8">
+        <div class="container mx-auto px-4">
+            <div class="text-center text-gray-600">
+                <p>&copy; 2025 GoodGame.mom - 最好玩的在线游戏站</p>
+                <p class="mt-2">使用本站即表示您同意我们的服务条款和隐私政策</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="assets/js/main.js"></script>
+</body>
+</html> 

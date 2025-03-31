@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO元标签 -->
+    <meta name="description" content="Space Odyssey - An exciting space adventure game. Navigate through asteroid fields and battle space pirates!">
+    <meta name="keywords" content="Space Odyssey,Adventure,Space,Arcade,Online Games,Free Games">
+    <title>游戏详情 - GoodGame.mom</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/game-template.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen">
+    <!-- 网站头部 - 包含网站标志、搜索框和导航菜单 -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- 网站Logo -->
+            <a href="index.html" class="text-2xl font-bold text-indigo-600 flex items-center">
+                <span>GoodGame</span>
+                <span class="text-pink-500">.mom</span>
+            </a>
+            
+            <!-- 搜索框 - 用于搜索网站上的游戏 -->
+            <div class="relative w-full max-w-md mx-4">
+                <input type="text" placeholder="搜索游戏..." 
+                       class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-3 top-2.5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                </svg>
+            </div>
+            
+            <!-- 导航菜单 - 网站主要导航链接 -->
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="text-gray-600 hover:text-indigo-600">首页</a></li>
+                    <li><a href="categories.html" class="text-gray-600 hover:text-indigo-600">分类</a></li>
+                    <li><a href="popular.html" class="text-gray-600 hover:text-indigo-600">热门</a></li>
+                    <li><a href="new-games.html" class="text-gray-600 hover:text-indigo-600">新游戏</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- 主要内容区域 - 包含游戏信息、游戏界面和评论等 -->
+    <main class="container mx-auto px-4 py-8">
+        <div id="game-container">
+            <!-- 游戏内容将通过JavaScript加载 -->
+            <div class="text-center py-12">
+                <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+                <p class="mt-2 text-gray-600">正在加载游戏信息...</p>
+            </div>
+        </div>
+        
+        <!-- 相关游戏推荐 - "你可能喜欢的游戏"推荐区 -->
+        <section class="mt-8">
+            <h2 class="text-2xl font-bold mb-6">You Might Also Like</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <a href="galaxy-defender.html" class="related-game-card">
+                    <div class="bg-gray-200 aspect-square rounded-lg overflow-hidden shadow-md">
+                        <img src="assets/images/games/galaxy-defender.jpg" alt="Galaxy Defender" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="mt-2 text-center font-medium">Galaxy Defender</h3>
+                </a>
+                
+                <a href="cosmic-racer.html" class="related-game-card">
+                    <div class="bg-gray-200 aspect-square rounded-lg overflow-hidden shadow-md">
+                        <img src="assets/images/games/cosmic-racer.jpg" alt="Cosmic Racer" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="mt-2 text-center font-medium">Cosmic Racer</h3>
+                </a>
+                
+                <a href="asteroid-miner.html" class="related-game-card">
+                    <div class="bg-gray-200 aspect-square rounded-lg overflow-hidden shadow-md">
+                        <img src="assets/images/games/asteroid-miner.jpg" alt="Asteroid Miner" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="mt-2 text-center font-medium">Asteroid Miner</h3>
+                </a>
+                
+                <a href="space-battle.html" class="related-game-card">
+                    <div class="bg-gray-200 aspect-square rounded-lg overflow-hidden shadow-md">
+                        <img src="assets/images/games/space-battle.jpg" alt="Space Battle" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="mt-2 text-center font-medium">Space Battle</h3>
+                </a>
+                
+                <a href="alien-invasion.html" class="related-game-card">
+                    <div class="bg-gray-200 aspect-square rounded-lg overflow-hidden shadow-md">
+                        <img src="assets/images/games/alien-invasion.jpg" alt="Alien Invasion" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="mt-2 text-center font-medium">Alien Invasion</h3>
+                </a>
+                
+                <a href="starship-commander.html" class="related-game-card">
+                    <div class="bg-gray-200 aspect-square rounded-lg overflow-hidden shadow-md">
+                        <img src="assets/images/games/starship-commander.jpg" alt="Starship Commander" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="mt-2 text-center font-medium">Starship Commander</h3>
+                </a>
+            </div>
+        </section>
+        
+        <!-- 评论区 - 用户评论和互动区域 -->
+        <section class="mt-8">
+            <h2 class="text-2xl font-bold mb-6">Player Comments</h2>
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <!-- 评论输入框 - 用户提交评论的表单 -->
+                <div class="mb-6 comment-form">
+                    <textarea class="comment-textarea w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 resize-none" rows="3" placeholder="Share your game experience..."></textarea>
+                    <div class="mt-2 flex justify-end">
+                        <button class="comment-submit game-button game-button-primary">
+                            Post Comment
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 评论列表 - 显示用户评论 -->
+                <div class="space-y-6 comments-list">
+                    <!-- 评论示例1 -->
+                    <div class="flex space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold">J</div>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex items-center mb-1">
+                                <h4 class="font-medium text-gray-900">JohnG</h4>
+                                <span class="mx-2 text-gray-300">•</span>
+                                <span class="text-sm text-gray-500">2 days ago</span>
+                            </div>
+                            <p class="text-gray-700">This game is awesome! The graphics are amazing and the gameplay is super smooth. I spent hours playing this without even realizing it. Definitely recommend to anyone who loves space games!</p>
+                            <div class="mt-2 flex items-center space-x-4 text-sm text-gray-500">
+                                <button class="flex items-center hover:text-indigo-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                                    </svg>
+                                    <span>24</span>
+                                </button>
+                                <button class="hover:text-indigo-600">Reply</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 评论示例2 -->
+                    <div class="flex space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 font-bold">S</div>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex items-center mb-1">
+                                <h4 class="font-medium text-gray-900">SarahK</h4>
+                                <span class="mx-2 text-gray-300">•</span>
+                                <span class="text-sm text-gray-500">1 week ago</span>
+                            </div>
+                            <p class="text-gray-700">I found the controls a bit difficult at first, but after practicing for a while I got better. The boss battles are challenging and fun. I wish there were more levels though!</p>
+                            <div class="mt-2 flex items-center space-x-4 text-sm text-gray-500">
+                                <button class="flex items-center hover:text-indigo-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                                    </svg>
+                                    <span>11</span>
+                                </button>
+                                <button class="hover:text-indigo-600">Reply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- 页脚 - 包含版权信息和网站链接 -->
+    <footer class="bg-gray-100 border-t border-gray-200 py-8 mt-10">
+        <div class="container mx-auto px-4">
+            <div class="text-center text-gray-600">
+                <p>&copy; 2025 GoodGame.mom - 最好玩的在线游戏站</p>
+                <p class="mt-2">使用本站即表示您同意我们的服务条款和隐私政策</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript文件 - 包含网站功能和游戏交互脚本 -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/game-template.js"></script>
+    <script>
+        // 获取URL参数
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+        
+        // 加载游戏数据
+        async function loadGameData() {
+            try {
+                const response = await fetch('games-data.json');
+                const games = await response.json();
+                return games;
+            } catch (error) {
+                console.error('加载游戏数据失败:', error);
+                return [];
+            }
+        }
+        
+        // 根据ID或URL路径获取游戏
+        function findGame(games, idOrPath) {
+            // 检查是否是完整路径
+            if (idOrPath.includes('/')) {
+                const pathParts = idOrPath.split('/');
+                const gameFolder = pathParts[pathParts.length - 2]; // 获取games/xxx/index.html中的xxx
+                
+                return games.find(game => {
+                    const gamePath = game.iframeUrl;
+                    return gamePath.includes(gameFolder);
+                });
+            }
+            
+            // 按ID查找
+            if (idOrPath === 'space-adventure' || idOrPath === 'game1') {
+                return games[0]; // 太空冒险
+            } else if (idOrPath === 'jungle-adventure' || idOrPath === 'game2') {
+                return games[1]; // 丛林探险
+            } else if (idOrPath === 'city-builder' || idOrPath === 'game3') {
+                return games[2]; // 城市建设者
+            }
+            
+            return null;
+        }
+        
+        // 渲染游戏详情
+        function renderGameDetails(game) {
+            if (!game) {
+                document.getElementById('game-container').innerHTML = `
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                        <strong class="font-bold">出错了!</strong>
+                        <span class="block sm:inline">找不到相关游戏信息。</span>
+                    </div>
+                `;
+                return;
+            }
+            
+            // 构建游戏标签HTML
+            const tagsHtml = game.tags.map(tag => 
+                `<span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">${tag}</span>`
+            ).join('');
+            
+            // 构建游戏提示HTML
+            const tipsHtml = game.tips.map(tip => 
+                `<li class="mb-2">${tip}</li>`
+            ).join('');
+            
+            // 构建相关游戏HTML
+            const relatedGamesHtml = game.relatedGames.map(related => 
+                `<div class="bg-white rounded-lg shadow overflow-hidden">
+                    <img src="${related.image}" alt="${related.title}" class="w-full h-32 object-cover">
+                    <div class="p-3">
+                        <h4 class="font-medium text-gray-900">${related.title}</h4>
+                        <a href="${related.url}" class="text-sm text-indigo-600 hover:underline">查看游戏</a>
+                    </div>
+                </div>`
+            ).join('');
+            
+            // 构建游戏截图HTML
+            const screenshotsHtml = game.screenshots.map(screenshot => 
+                `<div class="bg-white p-1 border border-gray-200 rounded">
+                    <img src="${screenshot}" alt="游戏截图" class="w-full h-auto rounded">
+                </div>`
+            ).join('');
+            
+            document.getElementById('game-container').innerHTML = `
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+                    <div class="md:flex">
+                        <div class="md:flex-shrink-0 bg-gradient-to-r from-indigo-500 to-purple-600 md:w-48 flex items-center justify-center p-8">
+                            <h1 class="text-3xl font-bold text-white text-center">${game.title}</h1>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                ${tagsHtml}
+                            </div>
+                            <p class="text-gray-700 mb-4">${game.description}</p>
+                            <a href="${game.iframeUrl}" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition">立即开始游戏</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                    <div class="md:col-span-2">
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden mb-8">
+                            <div class="p-6">
+                                <h2 class="text-2xl font-bold mb-4 text-indigo-600">游戏介绍</h2>
+                                <p class="text-gray-700 mb-6">${game.story}</p>
+                                
+                                <h3 class="text-xl font-semibold mb-3">游戏控制</h3>
+                                <pre class="bg-gray-100 p-4 rounded-lg text-sm font-mono mb-6 whitespace-pre-wrap">${game.controls}</pre>
+                                
+                                <h3 class="text-xl font-semibold mb-3">游戏技巧</h3>
+                                <ul class="list-disc list-inside text-gray-700 mb-6">
+                                    ${tipsHtml}
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                            <div class="p-6">
+                                <h2 class="text-2xl font-bold mb-4 text-indigo-600">游戏截图</h2>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    ${screenshotsHtml}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden mb-8">
+                            <div class="p-6">
+                                <h2 class="text-2xl font-bold mb-4 text-indigo-600">快速开始</h2>
+                                <div class="aspect-video bg-indigo-100 flex items-center justify-center mb-4 rounded-lg">
+                                    <a href="${game.iframeUrl}" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg transition text-center">
+                                        开始游戏
+                                    </a>
+                                </div>
+                                <p class="text-gray-600 text-sm">点击上方按钮立即开始游戏</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                            <div class="p-6">
+                                <h2 class="text-2xl font-bold mb-4 text-indigo-600">相关游戏</h2>
+                                <div class="grid grid-cols-1 gap-4">
+                                    ${relatedGamesHtml}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // 更新页面标题
+            document.title = `${game.title} - GoodGame.mom`;
+        }
+        
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', async function() {
+            // 获取游戏ID或路径
+            const gameId = getQueryParam('id');
+            const gamePath = getQueryParam('path');
+            const idOrPath = gamePath || gameId || '';
+            
+            if (!idOrPath) {
+                document.getElementById('game-container').innerHTML = `
+                    <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
+                        <strong class="font-bold">提示:</strong>
+                        <span class="block sm:inline">未指定游戏ID或路径。请从首页选择一个游戏。</span>
+                        <div class="mt-4">
+                            <a href="index.html" class="text-indigo-600 hover:underline">返回首页</a>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+            
+            // 加载游戏数据
+            const games = await loadGameData();
+            
+            // 查找相关游戏
+            const game = findGame(games, idOrPath);
+            
+            // 渲染游戏详情
+            renderGameDetails(game);
+        });
+    </script>
+</body>
+</html>

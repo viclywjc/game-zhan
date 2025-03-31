@@ -1,0 +1,179 @@
+/* 
+ * GoodGame.mom 游戏模板样式表
+ * 专门用于游戏页面的样式定义
+ */
+
+/* 游戏iframe容器样式 */
+.game-iframe-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background: #fff;
+}
+
+/* 游戏iframe本身样式 */
+.game-iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    display: block;
+}
+
+/* 自适应高度 */
+@media (max-width: 768px) {
+    .game-iframe {
+        height: 450px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-iframe {
+        height: 300px;
+    }
+}
+
+/* 游戏加载动画样式 */
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    border: 3px solid;
+    border-color: #6366f1 transparent #6366f1 transparent;
+    animation: rotation 1.5s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* 游戏信息标签样式 */
+.game-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: rgba(99, 102, 241, 0.1);
+    color: #6366f1;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+/* 游戏截图样式 */
+.game-screenshot {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-screenshot:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 游戏操作指南样式 */
+.game-controls {
+    background-color: #f9fafb;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.game-controls h4 {
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #4b5563;
+}
+
+.game-controls ul {
+    padding-left: 20px;
+}
+
+.game-controls li {
+    margin-bottom: 8px;
+    color: #6b7280;
+}
+
+/* 游戏按钮样式 */
+.game-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.game-button-primary {
+    background-color: #6366f1;
+    color: white;
+}
+
+.game-button-primary:hover {
+    background-color: #4f46e5;
+}
+
+.game-button-secondary {
+    background-color: #f3f4f6;
+    color: #4b5563;
+}
+
+.game-button-secondary:hover {
+    background-color: #e5e7eb;
+}
+
+/* 游戏背景信息样式 */
+.game-background {
+    background-color: #f5f3ff;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+/* 游戏攻略样式 */
+.game-tips {
+    background-color: #eff6ff;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+/* 游戏评分样式 */
+.game-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.game-rating-stars {
+    display: flex;
+    color: #fbbf24;
+    margin-right: 8px;
+}
+
+.game-rating-value {
+    font-weight: 600;
+    color: #4b5563;
+}
+
+/* 相关游戏卡片 */
+.related-game-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.related-game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+} 
