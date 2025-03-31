@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="games.riseUp.title">Rise Up - GoodGame.mom</title>
+    <link rel="stylesheet" href="../../assets/css/language-selector.css">
+    <style>
+        /* 游戏特定样式 */
+        body {
+            background: linear-gradient(135deg, #5c4f9d 0%, #b184dd 100%);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .game-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .game-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .game-description {
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .game-iframe-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9宽高比 */
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .game-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .game-controls {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .game-controls h3 {
+            color: #ffd700;
+            margin-top: 0;
+        }
+        
+        .start-button {
+            display: block;
+            width: 200px;
+            height: 50px;
+            margin: 0 auto;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .start-button:hover {
+            background-color: #218838;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-bar {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+        
+        @media (max-width: 768px) {
+            .game-title {
+                font-size: 2rem;
+            }
+            
+            .start-button {
+                width: 180px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 添加语言选择器 -->
+    <div class="language-selector">
+        <button class="lang-toggle" id="langToggle" title="Switch Language">
+            <span class="current-lang">EN</span>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+            <button class="lang-btn" data-lang="zh">
+                <span class="lang-flag flag-zh"></span>
+                <span>中文</span>
+            </button>
+            <button class="lang-btn" data-lang="en">
+                <span class="lang-flag flag-en"></span>
+                <span>English</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="nav-bar">
+        <div class="nav-links">
+            <a href="../../index.html" data-i18n="back.toHome">返回首页</a>
+            <a href="#game-frame" data-i18n="play">开始游戏</a>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <h1 class="game-title" data-i18n="games.riseUp.title">Rise Up</h1>
+        
+        <div class="game-description">
+            <p data-i18n="games.riseUp.longDescription">保护你的气球上升，使用护盾挡开所有障碍物！在这款简单易上手但充满挑战的益智游戏中，考验你的反应速度和精准度。你能带着气球飞多高？</p>
+        </div>
+        
+        <div class="game-iframe-container">
+            <iframe id="game-frame" class="game-iframe" src="https://play.famobi.com/rise-up" allowfullscreen></iframe>
+        </div>
+        
+        <div class="game-controls">
+            <h3 data-i18n="games.controls">游戏控制：</h3>
+            <ul>
+                <li data-i18n="games.riseUp.controls.shield">拖动：移动护盾保护气球</li>
+                <li data-i18n="games.riseUp.controls.avoid">避开：尽量不要让障碍物碰到气球</li>
+                <li data-i18n="games.riseUp.controls.careful">小心：某些障碍物会移动或旋转</li>
+                <li data-i18n="games.riseUp.controls.speed">速度：气球会随着高度增加而上升速度变快</li>
+            </ul>
+        </div>
+        
+        <button class="start-button" onclick="document.getElementById('game-frame').contentWindow.focus();" data-i18n="games.riseUp.startButton">开始游戏</button>
+    </div>
+
+    <!-- 引入语言配置文件 -->
+    <script src="../../assets/js/languages.js"></script>
+    <script src="../../assets/js/language-toggle.js"></script>
+</body>
+</html> 

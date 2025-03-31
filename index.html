@@ -5,23 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="GoodGame.mom - 最好玩的在线游戏站，提供动作、射击、益智等多种类型游戏">
     <meta name="keywords" content="在线游戏,免费游戏,休闲游戏,动作游戏,射击游戏,益智游戏">
-    <title>GoodGame.mom - 最好玩的在线游戏站</title>
+    <title data-i18n="site.title">GoodGame.mom - 最好玩的在线游戏站</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/language-selector.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 这里只保留非语言选择器的样式 */
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-900 min-h-screen">
+    <!-- 添加语言选择器 -->
+    <div class="language-selector">
+        <button class="lang-toggle" id="langToggle" title="Switch Language">
+            <span class="current-lang">EN</span>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+            <button class="lang-btn" data-lang="zh">
+                <span class="lang-flag flag-zh"></span>
+                <span>中文</span>
+            </button>
+            <button class="lang-btn" data-lang="en">
+                <span class="lang-flag flag-en"></span>
+                <span>English</span>
+            </button>
+        </div>
+    </div>
+
     <!-- 网站头部 -->
     <header class="bg-white shadow-sm sticky top-0 z-10">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <!-- Logo -->
             <a href="index.html" class="text-2xl font-bold text-indigo-600 flex items-center">
-                <span>GoodGame</span>
-                <span class="text-pink-500">.mom</span>
+                <span data-i18n="site.title">GoodGame.mom</span>
             </a>
             
             <!-- 搜索框 -->
             <div class="relative w-full max-w-md mx-4">
-                <input type="text" placeholder="搜索游戏..." 
+                <input type="text" placeholder="搜索游戏..." data-i18n-placeholder="common.search"
                        class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-3 top-2.5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
@@ -31,8 +51,8 @@
             <!-- 导航菜单 -->
             <nav>
                 <ul class="flex space-x-4">
-                    <li><a href="index.html" class="text-indigo-600 font-medium">首页</a></li>
-                    <li><a href="games-list.html" class="text-gray-600 hover:text-indigo-600">游戏列表</a></li>
+                    <li><a href="index.html" class="text-indigo-600 font-medium" data-i18n="home">首页</a></li>
+                    <li><a href="games-list.html" class="text-gray-600 hover:text-indigo-600" data-i18n="nav.games">游戏列表</a></li>
                 </ul>
             </nav>
         </div>
@@ -43,71 +63,86 @@
         <!-- 热门游戏 -->
         <section class="mb-12">
             <div class="flex justify-between items-center mb-4">
-                <h2 class="text-2xl font-bold">热门游戏</h2>
-                <a href="games-list.html" class="text-indigo-600 hover:underline">查看更多</a>
+                <h2 class="text-2xl font-bold" data-i18n="sections.popular">热门游戏</h2>
+                <a href="games-list.html" class="text-indigo-600 hover:underline" data-i18n="common.viewMore">查看更多</a>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                <!-- 游戏卡片1: 太空冒险 -->
-                <a href="games/space-adventure/index.html" class="game-card">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+                <!-- 游戏卡片1: Train Miner -->
+                <a href="games/train-miner/index.html" class="game-card">
                     <div class="bg-gray-200 aspect-square rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
-                        <div class="w-full h-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-white font-medium">
-                            太空冒险
-                        </div>
+                        <img src="assets/images/games/train-miner/thumbnail.jpg" alt="Train Miner" class="w-full h-full object-cover" onerror="this.onerror=null; this.src=''; this.parentElement.classList.add('bg-gradient-to-br'); this.parentElement.classList.add('from-amber-400'); this.parentElement.classList.add('to-orange-500'); this.parentElement.innerHTML += '<div class=\'w-full h-full flex items-center justify-center text-white font-medium\' data-i18n=\'games.trainMiner.title\'>Train Miner</div>';">
                     </div>
-                    <h3 class="mt-2 text-center font-medium">射击游戏</h3>
+                    <h3 class="mt-2 text-center font-medium" data-i18n="categories.action">动作游戏</h3>
                 </a>
-                <!-- 游戏卡片2: 丛林探险 -->
-                <a href="games/jungle-adventure/index.html" class="game-card">
+                <!-- 游戏卡片2: Rise Up -->
+                <a href="games/rise-up/index.html" class="game-card">
                     <div class="bg-gray-200 aspect-square rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
-                        <div class="w-full h-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center text-white font-medium">
-                            丛林探险
-                        </div>
+                        <img src="assets/images/games/rise-up/thumbnail.jpg" alt="Rise Up" class="w-full h-full object-cover" onerror="this.onerror=null; this.src=''; this.parentElement.classList.add('bg-gradient-to-br'); this.parentElement.classList.add('from-purple-400'); this.parentElement.classList.add('to-indigo-500'); this.parentElement.innerHTML += '<div class=\'w-full h-full flex items-center justify-center text-white font-medium\' data-i18n=\'games.riseUp.title\'>Rise Up</div>';">
                     </div>
-                    <h3 class="mt-2 text-center font-medium">冒险游戏</h3>
+                    <h3 class="mt-2 text-center font-medium" data-i18n="categories.puzzle">益智游戏</h3>
                 </a>
-                <!-- 游戏卡片3: 城市建设者 -->
-                <a href="games/city-builder/index.html" class="game-card">
+                <!-- 游戏卡片3: Giant Rush -->
+                <a href="games/giant-rush/index.html" class="game-card">
                     <div class="bg-gray-200 aspect-square rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
-                        <div class="w-full h-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-white font-medium">
-                            城市建设者
-                        </div>
+                        <img src="assets/images/games/giant-rush/thumbnail.jpg" alt="Giant Rush" class="w-full h-full object-cover" onerror="this.onerror=null; this.src=''; this.parentElement.classList.add('bg-gradient-to-br'); this.parentElement.classList.add('from-green-400'); this.parentElement.classList.add('to-emerald-500'); this.parentElement.innerHTML += '<div class=\'w-full h-full flex items-center justify-center text-white font-medium\' data-i18n=\'games.giantRush.title\'>Giant Rush</div>';">
                     </div>
-                    <h3 class="mt-2 text-center font-medium">策略游戏</h3>
+                    <h3 class="mt-2 text-center font-medium" data-i18n="categories.runner">跑酷游戏</h3>
+                </a>
+                <!-- 游戏卡片4: 8 Ball Billiards Classic -->
+                <a href="games/8-ball-billiards-classic/index.html" class="game-card">
+                    <div class="bg-gray-200 aspect-square rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                        <img src="assets/images/games/8-ball-billiards-classic/thumbnail.jpg" alt="8 Ball Billiards Classic" class="w-full h-full object-cover" onerror="this.onerror=null; this.src=''; this.parentElement.classList.add('bg-gradient-to-br'); this.parentElement.classList.add('from-blue-400'); this.parentElement.classList.add('to-blue-600'); this.parentElement.innerHTML += '<div class=\'w-full h-full flex items-center justify-center text-white font-medium\' data-i18n=\'games.billiards.title\'>8 Ball台球经典版</div>';">
+                    </div>
+                    <h3 class="mt-2 text-center font-medium" data-i18n="categories.sports">体育游戏</h3>
+                </a>
+                <!-- 游戏卡片5: 3D Free Kick -->
+                <a href="games/3d-free-kick/index.html" class="game-card">
+                    <div class="bg-gray-200 aspect-square rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                        <img src="assets/images/games/3d-free-kick/thumbnail.jpg" alt="3D Free Kick" class="w-full h-full object-cover" onerror="this.onerror=null; this.src=''; this.parentElement.classList.add('bg-gradient-to-br'); this.parentElement.classList.add('from-green-400'); this.parentElement.classList.add('to-green-600'); this.parentElement.innerHTML += '<div class=\'w-full h-full flex items-center justify-center text-white font-medium\' data-i18n=\'games.freeKick.title\'>3D Free Kick</div>';">
+                    </div>
+                    <h3 class="mt-2 text-center font-medium" data-i18n="categories.sports">体育游戏</h3>
+                </a>
+                <!-- 游戏卡片6: Om Nom Run -->
+                <a href="games/om-nom-run/index.html" class="game-card">
+                    <div class="bg-gray-200 aspect-square rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                        <img src="assets/images/games/om-nom-run/thumbnail.jpg" alt="Om Nom Run" class="w-full h-full object-cover" onerror="this.onerror=null; this.src=''; this.parentElement.classList.add('bg-gradient-to-br'); this.parentElement.classList.add('from-cyan-400'); this.parentElement.classList.add('to-blue-500'); this.parentElement.innerHTML += '<div class=\'w-full h-full flex items-center justify-center text-white font-medium\' data-i18n=\'games.omNom.title\'>Om Nom Run</div>';">
+                    </div>
+                    <h3 class="mt-2 text-center font-medium" data-i18n="categories.runner">跑酷游戏</h3>
                 </a>
             </div>
         </section>
         
         <!-- 游戏分类 -->
         <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-6">游戏分类</h2>
+            <h2 class="text-2xl font-bold mb-6" data-i18n="sections.categories">游戏分类</h2>
             
             <!-- 按类型分类 -->
             <div class="mb-8">
-                <h3 class="text-xl font-semibold mb-4">按游戏类型</h3>
+                <h3 class="text-xl font-semibold mb-4" data-i18n="common.byType">按游戏类型</h3>
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
                     <a href="games-list.html?type=action" class="category-card bg-gradient-to-r from-red-500 to-orange-500 rounded-xl p-4 text-white text-center shadow-md hover:shadow-lg transition duration-300">
                         <div class="text-4xl mb-2">🎮</div>
-                        <div class="font-medium">动作游戏</div>
+                        <div class="font-medium" data-i18n="categories.action">动作游戏</div>
                     </a>
                     <a href="games-list.html?type=shooter" class="category-card bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl p-4 text-white text-center shadow-md hover:shadow-lg transition duration-300">
                         <div class="text-4xl mb-2">🔫</div>
-                        <div class="font-medium">射击游戏</div>
+                        <div class="font-medium" data-i18n="categories.shooter">射击游戏</div>
                     </a>
                     <a href="games-list.html?type=puzzle" class="category-card bg-gradient-to-r from-green-500 to-teal-500 rounded-xl p-4 text-white text-center shadow-md hover:shadow-lg transition duration-300">
                         <div class="text-4xl mb-2">🧩</div>
-                        <div class="font-medium">益智游戏</div>
+                        <div class="font-medium" data-i18n="categories.puzzle">益智游戏</div>
                     </a>
                     <a href="games-list.html?type=strategy" class="category-card bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl p-4 text-white text-center shadow-md hover:shadow-lg transition duration-300">
                         <div class="text-4xl mb-2">🏆</div>
-                        <div class="font-medium">策略游戏</div>
+                        <div class="font-medium" data-i18n="categories.strategy">策略游戏</div>
                     </a>
                     <a href="games-list.html?type=sports" class="category-card bg-gradient-to-r from-yellow-500 to-amber-500 rounded-xl p-4 text-white text-center shadow-md hover:shadow-lg transition duration-300">
                         <div class="text-4xl mb-2">⚽</div>
-                        <div class="font-medium">体育游戏</div>
+                        <div class="font-medium" data-i18n="categories.sports">体育游戏</div>
                     </a>
                     <a href="games-list.html?type=racing" class="category-card bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl p-4 text-white text-center shadow-md hover:shadow-lg transition duration-300">
                         <div class="text-4xl mb-2">🚗</div>
-                        <div class="font-medium">赛车游戏</div>
+                        <div class="font-medium" data-i18n="categories.racing">赛车游戏</div>
                     </a>
                 </div>
             </div>
@@ -118,11 +153,13 @@
     <footer class="bg-gray-100 border-t border-gray-200 py-8">
         <div class="container mx-auto px-4">
             <div class="text-center text-gray-600">
-                <p>&copy; 2025 GoodGame.mom - 最好玩的在线游戏站</p>
+                <p>&copy; 2025 <span data-i18n="site.title">GoodGame.mom</span> - <span data-i18n="site.description">最好玩的在线游戏站</span></p>
             </div>
         </div>
     </footer>
     
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/languages.js"></script>
+    <script src="assets/js/language-toggle.js"></script>
 </body>
 </html> 

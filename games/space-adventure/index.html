@@ -1,219 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>太空冒险 - GoodGame.mom</title>
+    <title data-i18n="games.trainMiner.title">Train Miner - GoodGame.mom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 游戏容器样式 */
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background-color: #000;
-            font-family: Arial, sans-serif;
-        }
-        
-        /* 创建星空背景 */
-        body {
-            background-image: 
-                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px);
-            background-size: 550px 550px, 350px 350px, 250px 250px;
-            background-position: 0 0, 40px 60px, 130px 270px;
-            animation: starsAnimation 200s linear infinite;
-        }
-        
-        /* 星空动画 */
-        @keyframes starsAnimation {
-            from {
-                background-position: 0 0, 40px 60px, 130px 270px;
-            }
-            to {
-                background-position: 550px 550px, 390px 410px, 380px 520px;
-            }
-        }
-        
-        /* 游戏容器 */
-        #game-container {
-            width: 100%;
-            height: 100%;
+        /* 添加语言选择器样式 */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
         }
         
-        /* 游戏界面 */
-        #game-screen {
-            position: relative;
-            width: 800px;
-            height: 600px;
-            background: rgba(0, 0, 0, 0.5);
-            border: 2px solid #30cfd0;
-            box-shadow: 0 0 20px #30cfd0, inset 0 0 20px rgba(48, 207, 208, 0.5);
-            overflow: hidden;
-            border-radius: 5px;
-        }
-        
-        /* 游戏信息显示 */
-        #game-info {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            color: #fff;
-            font-family: 'Courier New', monospace;
-            text-shadow: 0 0 5px #30cfd0;
-        }
-        
-        /* 玩家宇宙飞船 */
-        #player {
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 64px;
-            height: 64px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path fill="%2330cfd0" d="M32 0L22 60h20L32 0zm-8 35L0 25l24 10-7 25h7l8-25zm40-10L40 35l8 25h7l-7-25 24-10z"/></svg>');
-            animation: shipHover 2s ease-in-out infinite;
-        }
-        
-        /* 飞船悬浮动画 */
-        @keyframes shipHover {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-10px); }
-        }
-        
-        /* 游戏控制说明 */
-        #controls {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
-            font-family: 'Courier New', monospace;
-        }
-        
-        /* 游戏开始按钮 */
-        #start-game {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 15px 30px;
-            background: linear-gradient(45deg, #330867, #30cfd0);
-            color: white;
+        .lang-btn {
+            padding: 5px 10px;
             border: none;
-            border-radius: 5px;
-            font-size: 18px;
+            border-radius: 3px;
             cursor: pointer;
-            box-shadow: 0 0 15px rgba(48, 207, 208, 0.8);
+            background: #3498db;
+            color: white;
             transition: all 0.3s;
         }
         
-        #start-game:hover {
-            transform: translate(-50%, -50%) scale(1.1);
-            box-shadow: 0 0 25px rgba(48, 207, 208, 1);
+        .lang-btn.active {
+            background: #2ecc71;
         }
         
-        /* 小行星元素 */
-        .asteroid {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="%23555" stroke="%23888" stroke-width="2"/><circle cx="10" cy="15" r="3" fill="%23888"/><circle cx="25" cy="10" r="2" fill="%23888"/><circle cx="28" cy="25" r="4" fill="%23888"/></svg>');
-            animation: rotate 10s linear infinite;
-        }
-        
-        /* 小行星旋转 */
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        /* 激光射击效果 */
-        .laser {
-            position: absolute;
-            width: 4px;
-            height: 20px;
-            background: #ff5e5e;
-            box-shadow: 0 0 10px #ff0000;
-            border-radius: 2px;
-        }
-        
-        /* 能量球 */
-        .energy-orb {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            box-shadow: 0 0 15px currentColor;
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-        
-        .energy-orb.shield {
-            background-color: #5ea1ff;
-            color: #5ea1ff;
-        }
-        
-        .energy-orb.power {
-            background-color: #ff5e5e;
-            color: #ff5e5e;
-        }
-        
-        /* 能量球脉冲动画 */
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.2); opacity: 0.8; }
+        .lang-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
-<body>
-    <div id="game-container">
-        <div id="game-screen">
-            <div id="game-info">
-                <p>生命值: 100</p>
-                <p>分数: 0</p>
-                <p>护盾: 50%</p>
-            </div>
-            
-            <div id="player"></div>
-            
-            <!-- 示例小行星 -->
-            <div class="asteroid" style="top: 100px; left: 200px;"></div>
-            <div class="asteroid" style="top: 200px; left: 500px;"></div>
-            <div class="asteroid" style="top: 350px; left: 300px;"></div>
-            
-            <!-- 示例激光 -->
-            <div class="laser" style="top: 350px; left: 398px;"></div>
-            
-            <!-- 示例能量球 -->
-            <div class="energy-orb shield" style="top: 150px; left: 400px;"></div>
-            <div class="energy-orb power" style="top: 450px; left: 600px;"></div>
-            
-            <div id="controls">
-                移动: 方向键或WASD<br>
-                射击: 空格键<br>
-                护盾: Q键<br>
-                加速: E键
-            </div>
-            
-            <button id="start-game">开始游戏</button>
-        </div>
+<body class="bg-gray-50">
+    <!-- 添加语言选择器 -->
+    <div class="language-selector">
+        <button class="lang-btn" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="en">English</button>
     </div>
-    
+
+    <!-- 导航栏 -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../../index.html" class="text-2xl font-bold text-indigo-600 flex items-center">
+                <span data-i18n="site.title">GoodGame.mom</span>
+            </a>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="../../index.html" class="text-gray-600 hover:text-indigo-600" data-i18n="back.toHome">返回首页</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 游戏内容 -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- 游戏标题和描述 -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold mb-4" data-i18n="games.trainMiner.title">Train Miner</h1>
+            <p class="text-gray-600" data-i18n="games.trainMiner.longDescription">在这款刺激的矿车游戏中，你将控制一辆矿车，在复杂的轨道上收集金币和宝石，同时躲避障碍物。挑战不同的关卡，提升你的技能！</p>
+        </div>
+
+        <!-- 游戏区域 -->
+        <div class="bg-white rounded-lg shadow-lg p-4 mb-8">
+            <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden">
+                <!-- 这里放置游戏iframe -->
+                <iframe src="https://play.famobi.com/train-miner" class="w-full h-full border-0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- 游戏控制说明 -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-xl font-bold mb-4" data-i18n="games.controls">游戏控制</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <h3 class="font-semibold mb-2" data-i18n="games.keyboardControls">控制方式</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li data-i18n="games.trainMiner.control1">• 点击或触摸屏幕来切换轨道</li>
+                        <li data-i18n="games.trainMiner.control2">• 向上滑动可以加速</li>
+                        <li data-i18n="games.trainMiner.control3">• 向下滑动可以减速</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2" data-i18n="games.tips">游戏提示</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li data-i18n="games.trainMiner.tip1">• 收集金币可以提高分数</li>
+                        <li data-i18n="games.trainMiner.tip2">• 收集宝石可以解锁新的矿车</li>
+                        <li data-i18n="games.trainMiner.tip3">• 注意躲避路上的障碍物</li>
+                        <li data-i18n="games.trainMiner.tip4">• 合理控制速度可以更容易通过弯道</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-100 border-t border-gray-200 py-8 mt-8">
+        <div class="container mx-auto px-4">
+            <div class="text-center text-gray-600">
+                <p>&copy; 2025 <span data-i18n="site.title">GoodGame.mom</span> - <span data-i18n="site.description">最好玩的在线游戏站</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 引入语言配置文件 -->
+    <script src="../../assets/js/languages.js"></script>
     <script>
-        // 游戏开始按钮点击事件
-        document.getElementById('start-game').addEventListener('click', function() {
-            // 隐藏开始按钮
-            this.style.display = 'none';
+        // 页面加载完成后初始化语言
+        document.addEventListener('DOMContentLoaded', function() {
+            // 设置初始语言
+            const currentLang = getCurrentLanguage();
+            updatePageContent(currentLang);
+            updateLanguageButtons(currentLang);
             
-            // 此处可添加游戏初始化逻辑
-            alert('游戏演示启动! 这只是一个前端展示，真实游戏需要更复杂的逻辑实现。');
+            // 添加语言切换事件监听
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.dataset.lang;
+                    setLanguage(lang);
+                });
+            });
         });
+        
+        // 更新页面内容的函数
+        function updatePageContent(lang) {
+            // 更新所有带有 data-i18n 属性的元素
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.dataset.i18n;
+                element.textContent = getText(key, lang);
+            });
+        }
     </script>
 </body>
 </html> 

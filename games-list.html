@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>游戏列表 - GoodGame.mom</title>
+    <title data-i18n="nav.games">游戏列表 - GoodGame.mom</title>
+    <link rel="stylesheet" href="assets/css/language-selector.css">
     <style>
         /* 全局样式 */
         * {
@@ -223,6 +224,91 @@
             color: rgba(255, 255, 255, 0.7);
         }
         
+        /* 语言选择器样式 */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .lang-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .lang-toggle:hover {
+            transform: scale(1.1);
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .lang-dropdown {
+            position: absolute;
+            top: 45px;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 5px;
+            padding: 10px;
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            min-width: 100px;
+        }
+        
+        .lang-dropdown.show {
+            display: flex;
+        }
+        
+        .lang-btn {
+            padding: 8px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            background: #3498db;
+            color: white;
+            transition: all 0.3s;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .lang-btn.active {
+            background: #2ecc71;
+        }
+        
+        .lang-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .lang-flag {
+            width: 20px;
+            height: 15px;
+            display: inline-block;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .flag-zh {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDgwMCI+PHBhdGggZmlsbD0iI2RlMjkxMCIgZD0iTTAgMGgxMjAwdjgwMEgweiIvPjxwYXRoIGZpbGw9IiNmZmRlMDAiIGQ9Ik0zMCAyMGg2MDBsLTEwLjUgNy4yNiA0LjQ0IDEyLjAzLTEwLjc3LTYuNzgtMTAuNzggNi43OCA0LjQ0LTEyLjAzTDYuNDIgMjBIMzB6bTYwIDQwbC03LjY2IDIzLjggMjAuNDItMTQuM0g4Mi4yNmwyMC40MSAxNC4zTDk0LjkgNjBIOTB6bTIwIDYwbC0yNC4zNSA0LjY0IDE0LjkgMTkuOTctMjMuNDctOC4zNS0zLjg1IDI0LjY0LTEwLjIzLTIyLjc4LTEwLjIyIDIyLjc4LTMuODYtMjQuNjQtMjMuNDcgOC4zNSAxNC45LTE5Ljk3TDEwIDEyMGgxMDB6bS00MCA0MGw0LjgzIDI0LjI3TDkwIDIzNC41NGwtNS40Mi0yNC4wNSAyMy4yOS05LjYtMjMtMTAuMmwzLjg2LTI0LjY0TDc0Ljc4IDIwNGwtMTUtMTkuOS0xNC45OSAxOS45TDMwLjg0IDE2Ni4wNSAzNC43IDE5MC43bC0yMy0xMC4ybDIzLjI5IDkuNkwyOS41NyAyMzQuNTRsMTUuMTctMjAuMjcgNC44My0yNC4yN0g5MHoiLz48L3N2Zz4=');
+        }
+        
+        .flag-en {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjM1IDY1MCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxnIGlkPSJ1ayI+PHBhdGggZD0iTTAgMGw2MCAxMTAgNjAtMTEwaDU1bDYwIDExMC02MC0xMTB6IiBpZD0idHJpYW5nbGUiIGZpbGw9IndoaXRlIi8+PHVzZSB4bGluazpocmVmPSIjdHJpYW5nbGUiIHRyYW5zZm9ybT0ibWF0cml4KC0xLDAsMCwxLDE3NSwwKSIvPjxnIGlkPSJsaW5lIj48dXNlIHhsaW5rOmhyZWY9IiN0cmlhbmdsZSIgdHJhbnNmb3JtPSJtYXRyaXgoMSwwLDAsLTEsMCwxMTApIi8+PHVzZSB4bGluazpocmVmPSIjdHJpYW5nbGUiIHRyYW5zZm9ybT0ibWF0cml4KC0xLDAsMCwtMSwxNzUsMTEwKSIvPjwvZz48dXNlIHhsaW5rOmhyZWY9IiNsaW5lIiB0cmFuc2Zvcm09InJvdGF0ZSgwKSIvPjwvZz48L2RlZnM+PHBhdGggZmlsbD0iIzAwMjQ3ZCIgZD0iTTAgMGgxMjM1djY1MEgweiIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0wIDBsNDEyIDMyNWgtNDByLTMxLjV2LTI1aC0xMDB2MjVoLTMxLjVoLTQwek04MjMgMzI1aDQwaDMxLjV2LTI1aDEwMHYyNWgzMS41aDQwTDEyMzUgMCIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0wIDY1MGw0MTItMzI1aC00MGgtMzEuNXYyNWgtMTAwdi0yNWgtMzEuNWgtNDB6TTgyMyAzMjVoNDBoMzEuNXYyNWgxMDB2LTI1aDMxLjVoNDBMMTIzNSA2NTAiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNNDE2LjUgMjc1djEwMGg0MDJ2LTEwMHptMC0yNzV2MTAwaDQwMlYwek0wIDI3NXYxMDBoNDE2LjVoNDAyVjI3NVptMTIzNSAxMDBWMjc1aC00MDJoLTMwVjBIMzc1djI3NWgtMzAiLz48cGF0aCBmaWxsPSIjYzgxMDJlIiBkPSJNMCA0MDBoMTIzNXYtMTUwSDB6TTU0Ny41IDB2NjUwaDEwMFYweiIvPjxwYXRoIGZpbGw9IiNjODEwMmUiIGQ9Ik0wIDI1aDQxNi41TDAgMTUwVjI1ek0wIDUwMGw0MTYuNSAxNTB2LTI1SDB6TTEyMzUgNjI1SDgxOC41TDEyMzUgNTAwem0wLTQ3NUw4MTguNSAwdjI1eiIvPjwvc3ZnPg==');
+        }
+        
         /* 响应式设计 */
         @media (max-width: 768px) {
             .nav-container {
@@ -255,75 +341,140 @@
     </style>
 </head>
 <body>
+    <!-- 添加语言选择器 -->
+    <div class="language-selector">
+        <button class="lang-toggle" id="langToggle" title="Switch Language">
+            <span class="current-lang">EN</span>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+            <button class="lang-btn" data-lang="zh">
+                <span class="lang-flag flag-zh"></span>
+                <span>中文</span>
+            </button>
+            <button class="lang-btn" data-lang="en">
+                <span class="lang-flag flag-en"></span>
+                <span>English</span>
+            </button>
+        </div>
+    </div>
+    
     <!-- 页面头部 -->
     <header>
         <div class="nav-container">
-            <a href="index.html" class="logo">GoodGame.mom</a>
+            <a href="index.html" class="logo" data-i18n="site.title">GoodGame.mom</a>
             <nav>
                 <ul>
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="#">分类</a></li>
-                    <li><a href="#">热门</a></li>
-                    <li><a href="#">新游戏</a></li>
+                    <li><a href="index.html" data-i18n="home">首页</a></li>
+                    <li><a href="#" data-i18n="nav.categories">分类</a></li>
+                    <li><a href="#" data-i18n="sections.popular">热门</a></li>
+                    <li><a href="#" data-i18n="nav.new">新游戏</a></li>
                 </ul>
             </nav>
             <div class="search-box">
-                <input type="text" placeholder="搜索游戏...">
-                <button>搜索</button>
+                <input type="text" placeholder="搜索游戏..." data-i18n-placeholder="common.search">
+                <button data-i18n="common.search">搜索</button>
             </div>
         </div>
     </header>
     
     <!-- 主要内容区域 -->
     <main>
-        <h1 class="page-title">游戏列表</h1>
+        <h1 class="page-title" data-i18n="nav.games">游戏列表</h1>
         
         <div class="games-container">
-            <!-- 游戏卡片1: 太空冒险 -->
+            <!-- 游戏卡片1: Train Miner -->
             <div class="game-card">
-                <div class="game-image" style="background-image: url('assets/images/games/space-adventure/thumbnail.jpg');"></div>
+                <div class="game-image" style="background: url('assets/images/games/train-miner/thumbnail.jpg') center/cover; background-size: cover; background-position: center; background-repeat: no-repeat;">
+                </div>
                 <div class="game-info">
-                    <h2 class="game-title">太空冒险</h2>
-                    <p class="game-description">驾驶你的宇宙飞船，在广阔的太空中探索，躲避小行星，收集能量，与敌人战斗。</p>
+                    <h2 class="game-title" data-i18n="games.trainMiner.title">Train Miner</h2>
+                    <p class="game-description" data-i18n="games.trainMiner.description">在这款刺激的矿车游戏中，你将控制一辆矿车，在复杂的轨道上收集金币和宝石，同时躲避障碍物。</p>
                     <div class="game-tags">
-                        <span class="tag">射击</span>
-                        <span class="tag">太空</span>
-                        <span class="tag">冒险</span>
+                        <span class="tag" data-i18n="categories.action">动作</span>
+                        <span class="tag" data-i18n="categories.adventure">冒险</span>
+                        <span class="tag">收集</span>
                     </div>
-                    <a href="games/space-adventure/index.html" class="play-button">开始游戏</a>
-                    <a href="game.html?id=space-adventure" class="details-link">查看详情</a>
+                    <a href="games/train-miner/index.html" class="play-button" data-i18n="play">开始游戏</a>
                 </div>
             </div>
             
-            <!-- 游戏卡片2: 丛林探险 -->
+            <!-- 游戏卡片2: Rise Up -->
             <div class="game-card">
-                <div class="game-image" style="background-image: url('assets/images/games/jungle-adventure/thumbnail.jpg');"></div>
+                <div class="game-image" style="background: url('assets/images/games/rise-up/thumbnail.jpg') center/cover; background-size: cover; background-position: center; background-repeat: no-repeat;">
+                </div>
                 <div class="game-info">
-                    <h2 class="game-title">丛林探险</h2>
-                    <p class="game-description">穿越危险的丛林，跳跃平台，躲避陷阱，收集宝石，寻找失落的宝藏。</p>
+                    <h2 class="game-title" data-i18n="games.riseUp.title">Rise Up</h2>
+                    <p class="game-description" data-i18n="games.riseUp.description">保护你的气球上升，使用护盾挡开所有障碍物！在这款简单易上手但充满挑战的益智游戏中，考验你的反应速度和精准度。</p>
                     <div class="game-tags">
-                        <span class="tag">平台</span>
-                        <span class="tag">冒险</span>
-                        <span class="tag">动作</span>
+                        <span class="tag" data-i18n="categories.puzzle">益智</span>
+                        <span class="tag">休闲</span>
+                        <span class="tag">保护</span>
                     </div>
-                    <a href="games/jungle-adventure/index.html" class="play-button">开始游戏</a>
-                    <a href="game.html?id=jungle-adventure" class="details-link">查看详情</a>
+                    <a href="games/rise-up/index.html" class="play-button" data-i18n="play">开始游戏</a>
                 </div>
             </div>
             
-            <!-- 游戏卡片3: 城市建设者 -->
+            <!-- 游戏卡片3: Giant Rush -->
             <div class="game-card">
-                <div class="game-image" style="background-image: url('assets/images/games/city-builder/thumbnail.jpg');"></div>
+                <div class="game-image" style="background: url('assets/images/games/giant-rush/thumbnail.jpg') center/cover; background-size: cover; background-position: center; background-repeat: no-repeat;">
+                </div>
                 <div class="game-info">
-                    <h2 class="game-title">城市建设者</h2>
-                    <p class="game-description">规划和建设你自己的城市，平衡资源，管理居民需求，解决城市问题。</p>
+                    <h2 class="game-title" data-i18n="games.giantRush.title">Giant Rush</h2>
+                    <p class="game-description" data-i18n="games.giantRush.description">在这款刺激的奔跑游戏中，控制你的角色，收集宝石，击败敌人，并不断成长变得更加强大。</p>
                     <div class="game-tags">
-                        <span class="tag">策略</span>
-                        <span class="tag">模拟</span>
-                        <span class="tag">建造</span>
+                        <span class="tag" data-i18n="categories.runner">跑酷</span>
+                        <span class="tag" data-i18n="categories.action">动作</span>
+                        <span class="tag">成长</span>
                     </div>
-                    <a href="games/city-builder/index.html" class="play-button">开始游戏</a>
-                    <a href="game.html?id=city-builder" class="details-link">查看详情</a>
+                    <a href="games/giant-rush/index.html" class="play-button" data-i18n="play">开始游戏</a>
+                </div>
+            </div>
+            
+            <!-- 游戏卡片4: 8 Ball Billiards Classic -->
+            <div class="game-card">
+                <div class="game-image" style="background: url('assets/images/games/8-ball-billiards-classic/thumbnail.jpg') center/cover; background-size: cover; background-position: center; background-repeat: no-repeat;">
+                </div>
+                <div class="game-info">
+                    <h2 class="game-title" data-i18n="games.billiards.title">8 Ball Billiards Classic</h2>
+                    <p class="game-description" data-i18n="games.billiards.description">体验经典台球游戏的乐趣！瞄准、计算角度，一杆进洞。挑战电脑或与朋友一起游戏，展示你的台球技巧。</p>
+                    <div class="game-tags">
+                        <span class="tag" data-i18n="categories.sports">体育</span>
+                        <span class="tag">台球</span>
+                        <span class="tag">技巧</span>
+                    </div>
+                    <a href="games/8-ball-billiards-classic/index.html" class="play-button" data-i18n="play">开始游戏</a>
+                </div>
+            </div>
+            
+            <!-- 游戏卡片5: 3D Free Kick -->
+            <div class="game-card">
+                <div class="game-image" style="background: url('assets/images/games/3d-free-kick/thumbnail.jpg') center/cover; background-size: cover; background-position: center; background-repeat: no-repeat;">
+                </div>
+                <div class="game-info">
+                    <h2 class="game-title" data-i18n="games.freeKick.title">3D Free Kick</h2>
+                    <p class="game-description" data-i18n="games.freeKick.description">体验逼真的3D足球任意球！选择你喜欢的球队，计算角度和力度，用精准的射门技巧击败守门员。</p>
+                    <div class="game-tags">
+                        <span class="tag" data-i18n="categories.sports">体育</span>
+                        <span class="tag">足球</span>
+                        <span class="tag">技巧</span>
+                    </div>
+                    <a href="games/3d-free-kick/index.html" class="play-button" data-i18n="play">开始游戏</a>
+                </div>
+            </div>
+            
+            <!-- 游戏卡片6: Om Nom Run -->
+            <div class="game-card">
+                <div class="game-image" style="background: url('assets/images/games/om-nom-run/thumbnail.jpg') center/cover; background-size: cover; background-position: center; background-repeat: no-repeat;">
+                </div>
+                <div class="game-info">
+                    <h2 class="game-title" data-i18n="games.omNom.title">Om Nom Run</h2>
+                    <p class="game-description" data-i18n="games.omNom.description">和可爱的小怪物Om Nom一起奔跑！收集糖果和躲避障碍，帮助他跑得越远越好，解锁更多角色和能力！</p>
+                    <div class="game-tags">
+                        <span class="tag" data-i18n="categories.runner">跑酷</span>
+                        <span class="tag">休闲</span>
+                        <span class="tag" data-i18n="categories.action">动作</span>
+                    </div>
+                    <a href="games/om-nom-run/index.html" class="play-button" data-i18n="play">开始游戏</a>
                 </div>
             </div>
         </div>
@@ -333,15 +484,17 @@
     <footer>
         <div class="footer-content">
             <ul class="footer-links">
-                <li><a href="#">关于我们</a></li>
-                <li><a href="#">联系方式</a></li>
+                <li><a href="#" data-i18n="footer.about">关于我们</a></li>
+                <li><a href="#" data-i18n="footer.contact">联系方式</a></li>
                 <li><a href="#">隐私政策</a></li>
                 <li><a href="#">使用条款</a></li>
             </ul>
-            <p class="copyright">© 2025 GoodGame.mom - 最好玩的在线游戏站</p>
+            <p class="copyright">© 2025 <span data-i18n="site.title">GoodGame.mom</span> - <span data-i18n="site.description">最好玩的在线游戏站</span></p>
         </div>
     </footer>
 
+    <script src="assets/js/languages.js"></script>
+    <script src="assets/js/language-toggle.js"></script>
     <script>
         // 搜索功能
         document.querySelector('.search-box button').addEventListener('click', function() {
@@ -365,7 +518,7 @@
                 });
                 
                 if (!found) {
-                    alert('没有找到匹配的游戏，请尝试其他关键词');
+                    alert(getText('common.noResults', getCurrentLanguage()));
                 }
             }
         });

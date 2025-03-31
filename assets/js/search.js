@@ -451,7 +451,7 @@ function displaySearchResults() {
                         <div class="text-5xl mb-4">😢</div>
                         <h3 class="text-xl font-medium mb-2">没有找到相关游戏</h3>
                         <p class="text-gray-500">请尝试其他关键词，或浏览我们的游戏分类。</p>
-                        <a href="categories.html" class="mt-4 inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg">浏览所有分类</a>
+                        <a href="games-list.html" class="mt-4 inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg">浏览所有分类</a>
                     </div>
                 `;
             }

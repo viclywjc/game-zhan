@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="games.riseUp.title">Rise Up - GoodGame.mom</title>
+    <title data-i18n="games.freeKick.title">3D Free Kick - GoodGame.mom</title>
+    <link rel="stylesheet" href="../../assets/css/language-selector.css">
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1a5276, #2e86c1);
+            background: linear-gradient(135deg, #1b5e20, #4caf50);
             color: #fff;
             min-height: 100vh;
         }
@@ -50,7 +51,7 @@
             font-size: 3rem;
             margin: 2rem 0;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            color: #f39c12;
+            color: #ffeb3b;
         }
 
         /* 游戏描述 */
@@ -89,7 +90,7 @@
         }
 
         .controls h2 {
-            color: #f39c12;
+            color: #ffeb3b;
             margin-bottom: 1rem;
         }
 
@@ -105,7 +106,7 @@
         }
 
         .controls li::before {
-            content: "🎮";
+            content: "⚽";
             margin-right: 1rem;
         }
 
@@ -117,7 +118,7 @@
             padding: 1rem 2rem;
             font-size: 1.2rem;
             color: #fff;
-            background: linear-gradient(45deg, #3498db, #2980b9);
+            background: linear-gradient(45deg, #ffc107, #ff9800);
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -128,7 +129,7 @@
 
         .start-game:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
         }
 
         /* 页脚 */
@@ -138,47 +139,26 @@
             background: rgba(0, 0, 0, 0.3);
             margin-top: 2rem;
         }
-        
-        /* 添加语言选择器样式 */
-        .language-selector {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-            border-radius: 5px;
-            display: flex;
-            gap: 10px;
-            z-index: 1000;
-        }
-        
-        .lang-btn {
-            padding: 5px 10px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            background: #3498db;
-            color: white;
-            transition: all 0.3s;
-        }
-        
-        .lang-btn.active {
-            background: #2ecc71;
-        }
-        
-        .lang-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
     </style>
 </head>
 <body>
     <!-- 添加语言选择器 -->
     <div class="language-selector">
-        <button class="lang-btn" data-lang="zh">中文</button>
-        <button class="lang-btn" data-lang="en">English</button>
+        <button class="lang-toggle" id="langToggle" title="Switch Language">
+            <span class="current-lang">EN</span>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+            <button class="lang-btn" data-lang="zh">
+                <span class="lang-flag flag-zh"></span>
+                <span>中文</span>
+            </button>
+            <button class="lang-btn" data-lang="en">
+                <span class="lang-flag flag-en"></span>
+                <span>English</span>
+            </button>
+        </div>
     </div>
-    
+
     <!-- 导航栏 -->
     <nav class="navbar">
         <a href="../../index.html" data-i18n="back.toHome">返回首页</a>
@@ -187,68 +167,43 @@
 
     <!-- 主要内容 -->
     <div class="container">
-        <h1 class="game-title" data-i18n="games.riseUp.title">Rise Up</h1>
+        <h1 class="game-title" data-i18n="games.freeKick.title">3D Free Kick</h1>
         
         <div class="game-description">
-            <p data-i18n="games.riseUp.longDescription">在这款具有挑战性的游戏中，你需要保护气球安全上升，用盾牌挡住所有可能戳破气球的障碍物。随着高度的增加，难度会逐渐提升，考验你的反应能力和技巧。</p>
-            <p data-i18n="games.riseUp.features.title">游戏特点：</p>
+            <p data-i18n="games.freeKick.longDescription">体验逼真的3D足球任意球！选择你喜欢的球队，计算角度和力度，用精准的射门技巧击败守门员，赢得比赛。多种比赛模式和难度级别等你挑战！</p>
+            <p data-i18n="games.freeKick.features.title">游戏特点：</p>
             <ul>
-                <li data-i18n="games.riseUp.features.graphics">精美简约的风格画面</li>
-                <li data-i18n="games.riseUp.features.gameplay">简单但极具挑战性的玩法</li>
-                <li data-i18n="games.riseUp.features.levels">多种不同难度的关卡</li>
-                <li data-i18n="games.riseUp.features.balloons">收集并解锁多种气球样式</li>
+                <li data-i18n="games.freeKick.features.graphics">精美的3D图形</li>
+                <li data-i18n="games.freeKick.features.teams">多支球队可选择</li>
+                <li data-i18n="games.freeKick.features.modes">锦标赛和练习模式</li>
+                <li data-i18n="games.freeKick.features.physics">真实的球体物理效果</li>
             </ul>
         </div>
 
-        <div class="game-preview" id="game-section">
-            <iframe src="https://play.famobi.com/rise-up" title="Rise Up" allowfullscreen></iframe>
+        <div class="game-iframe-container">
+            <iframe id="game-frame" class="game-iframe" src="https://play.famobi.com/3d-free-kick" allowfullscreen></iframe>
         </div>
 
         <div class="controls">
             <h2 data-i18n="games.controls">游戏控制</h2>
             <ul>
-                <li data-i18n="games.riseUp.controls.move">移动：使用鼠标或触摸屏拖动盾牌</li>
-                <li data-i18n="games.riseUp.controls.protect">保护：将盾牌放在气球和障碍物之间</li>
-                <li data-i18n="games.riseUp.controls.timing">时机：掌握好盾牌的位置和时机</li>
-                <li data-i18n="games.riseUp.controls.collect">收集：碰触星星来获得分数和解锁新气球</li>
+                <li data-i18n="games.freeKick.controls.aim">瞄准：拖动球来调整射门方向</li>
+                <li data-i18n="games.freeKick.controls.power">力度：按住射门按钮的时间决定力度</li>
+                <li data-i18n="games.freeKick.controls.curve">弧线球：射门时向左或向右滑动</li>
+                <li data-i18n="games.freeKick.controls.technique">技巧：结合方向和力度创造不同的射门效果</li>
             </ul>
         </div>
 
-        <a href="#game-section" class="start-game" data-i18n="games.riseUp.startButton">开始游戏</a>
+        <a href="#game-section" class="start-game" data-i18n="games.freeKick.startButton">开始游戏</a>
     </div>
 
     <!-- 页脚 -->
     <footer>
-        <p>© 2025 <span data-i18n="site.title">GoodGame.mom</span> - <span data-i18n="games.riseUp.title">Rise Up</span></p>
+        <p>© 2025 <span data-i18n="site.title">GoodGame.mom</span> - <span data-i18n="games.freeKick.title">3D Free Kick</span></p>
     </footer>
     
     <!-- 引入语言配置文件 -->
     <script src="../../assets/js/languages.js"></script>
-    <script>
-        // 页面加载完成后初始化语言
-        document.addEventListener('DOMContentLoaded', function() {
-            // 设置初始语言
-            const currentLang = getCurrentLanguage();
-            updatePageContent(currentLang);
-            updateLanguageButtons(currentLang);
-            
-            // 添加语言切换事件监听
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const lang = this.dataset.lang;
-                    setLanguage(lang);
-                });
-            });
-        });
-        
-        // 更新页面内容的函数
-        function updatePageContent(lang) {
-            // 更新所有带有 data-i18n 属性的元素
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.dataset.i18n;
-                element.textContent = getText(key, lang);
-            });
-        }
-    </script>
+    <script src="../../assets/js/language-toggle.js"></script>
 </body>
 </html> 
